@@ -4,21 +4,21 @@ import com.contact.domain.UserInfo;
 import com.contact.repositories.Dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 
-@RestController
-public class Controller {
+@Controller
+public class Controllers {
 
     private Dao dao;
 
     @Autowired
-     public Controller(Dao dao){
+     public Controllers (Dao dao){
          this.dao= dao;
      }
 
      @PostMapping("submit-form")
      public String addUser(UserInfo userInfo){
         dao.save(userInfo);
-        return "Data sumbitted successfully";
+        return "redirect:/Contactus_Dental.html";
      }
 }
